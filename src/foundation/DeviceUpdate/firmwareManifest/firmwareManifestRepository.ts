@@ -6,7 +6,7 @@ import { extractFilter } from "../../../common/filters";
 import { FirmwareManifestListOptions } from "./types";
 import { ReadStream } from "fs";
 import { Paginator, Page } from "../../../index";
-import { ListOptions } from "../../../legacy/common/interfaces";
+import { ListOptions } from "../../../common";
 /**
  *FirmwareManifest repository
  */
@@ -32,7 +32,7 @@ export class FirmwareManifestRepository extends Repository {
                             key_table: options.keyTableFile,
                             name: options.name,
                         },
-                        contentTypes: [ "multipart/form-data" ],
+                        contentTypes: ["multipart/form-data"],
                     },
                     resultsFn
                 );
@@ -125,7 +125,7 @@ export class FirmwareManifestRepository extends Repository {
                     );
                 },
                 (data: Page<FirmwareManifest>, done) => {
-                    done(null, new Page(data, data.data, FirmwareManifestAdapter.fromApi));
+                    done(null, new Page(data, data.data, FirmwareManifestAdapter.fromApi, pageOptions));
                 },
                 null
             );

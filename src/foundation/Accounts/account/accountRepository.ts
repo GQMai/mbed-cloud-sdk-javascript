@@ -27,7 +27,7 @@ import { SubtenantUser } from "../../index";
 import { SubtenantUserAdapter } from "../../index";
 import { AccountSubtenantUserListOptions } from "./types";
 import { Paginator, Page } from "../../../index";
-import { ListOptions } from "../../../legacy/common/interfaces";
+import { ListOptions } from "../../../common";
 /**
  *Account repository
  */
@@ -62,7 +62,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantApiKey>, done) => {
-                    done(null, new Page(data, data.data, SubtenantApiKeyAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantApiKeyAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -95,6 +95,7 @@ export class AccountRepository extends Repository {
                             admin_name: request.adminName,
                             admin_password: request.adminPassword,
                             aliases: request.aliases,
+                            business_model: request.businessModel,
                             city: request.city,
                             company: request.company,
                             contact: request.contact,
@@ -119,7 +120,7 @@ export class AccountRepository extends Repository {
     }
     /**
      * darkThemeBrandingColors
-     * @param id - Account ID.
+     * @param id - The ID of the account.
      * @param options - options
      */
     public darkThemeBrandingColors(id: string, options?: ListOptions): Paginator<SubtenantDarkThemeColor, ListOptions> {
@@ -139,7 +140,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantDarkThemeColor>, done) => {
-                    done(null, new Page(data, data.data, SubtenantDarkThemeColorAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantDarkThemeColorAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -148,7 +149,7 @@ export class AccountRepository extends Repository {
     }
     /**
      * darkThemeBrandingImages
-     * @param id - Account ID.
+     * @param id - The ID of the account.
      * @param options - options
      */
     public darkThemeBrandingImages(id: string, options?: ListOptions): Paginator<SubtenantDarkThemeImage, ListOptions> {
@@ -168,7 +169,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantDarkThemeImage>, done) => {
-                    done(null, new Page(data, data.data, SubtenantDarkThemeImageAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantDarkThemeImageAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -177,7 +178,7 @@ export class AccountRepository extends Repository {
     }
     /**
      * lightThemeBrandingColors
-     * @param id - Account ID.
+     * @param id - The ID of the account.
      * @param options - options
      */
     public lightThemeBrandingColors(
@@ -200,7 +201,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantLightThemeColor>, done) => {
-                    done(null, new Page(data, data.data, SubtenantLightThemeColorAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantLightThemeColorAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -209,7 +210,7 @@ export class AccountRepository extends Repository {
     }
     /**
      * lightThemeBrandingImages
-     * @param id - Account ID.
+     * @param id - The ID of the account.
      * @param options - options
      */
     public lightThemeBrandingImages(
@@ -232,7 +233,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantLightThemeImage>, done) => {
-                    done(null, new Page(data, data.data, SubtenantLightThemeImageAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantLightThemeImageAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -272,7 +273,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<Account>, done) => {
-                    done(null, new Page(data, data.data, AccountAdapter.fromApi));
+                    done(null, new Page(data, data.data, AccountAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -383,7 +384,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantTrustedCertificate>, done) => {
-                    done(null, new Page(data, data.data, SubtenantTrustedCertificateAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantTrustedCertificateAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -409,6 +410,7 @@ export class AccountRepository extends Repository {
                             address_line1: request.addressLine1,
                             address_line2: request.addressLine2,
                             aliases: request.aliases,
+                            business_model: request.businessModel,
                             city: request.city,
                             company: request.company,
                             contact: request.contact,
@@ -472,7 +474,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantUserInvitation>, done) => {
-                    done(null, new Page(data, data.data, SubtenantUserInvitationAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantUserInvitationAdapter.fromApi, pageOptions));
                 },
                 null
             );
@@ -512,7 +514,7 @@ export class AccountRepository extends Repository {
                     );
                 },
                 (data: Page<SubtenantUser>, done) => {
-                    done(null, new Page(data, data.data, SubtenantUserAdapter.fromApi));
+                    done(null, new Page(data, data.data, SubtenantUserAdapter.fromApi, pageOptions));
                 },
                 null
             );

@@ -19,15 +19,19 @@ import { DeviceEventsRepository } from ".";
 import { DeviceGroupRepository } from ".";
 import { FirmwareImageRepository } from ".";
 import { FirmwareManifestRepository } from ".";
+import { IdentityProviderRepository } from ".";
 import { LightThemeColorRepository } from ".";
 import { LightThemeImageRepository } from ".";
+import { PolicyGroupRepository } from ".";
 import { PreSharedKeyRepository } from ".";
 import { ServerCredentialsRepository } from ".";
 import { SubtenantApiKeyRepository } from ".";
 import { SubtenantDarkThemeColorRepository } from ".";
 import { SubtenantDarkThemeImageRepository } from ".";
+import { SubtenantIdentityProviderRepository } from ".";
 import { SubtenantLightThemeColorRepository } from ".";
 import { SubtenantLightThemeImageRepository } from ".";
+import { SubtenantPolicyGroupRepository } from ".";
 import { SubtenantTrustedCertificateRepository } from ".";
 import { SubtenantUserRepository } from ".";
 import { SubtenantUserInvitationRepository } from ".";
@@ -101,11 +105,17 @@ export class Factory {
     public firmwareManifestRepository(): FirmwareManifestRepository {
         return new FirmwareManifestRepository(this._config);
     }
+    public identityProviderRepository(): IdentityProviderRepository {
+        return new IdentityProviderRepository(this._config);
+    }
     public lightThemeColorRepository(): LightThemeColorRepository {
         return new LightThemeColorRepository(this._config);
     }
     public lightThemeImageRepository(): LightThemeImageRepository {
         return new LightThemeImageRepository(this._config);
+    }
+    public policyGroupRepository(): PolicyGroupRepository {
+        return new PolicyGroupRepository(this._config);
     }
     public preSharedKeyRepository(): PreSharedKeyRepository {
         return new PreSharedKeyRepository(this._config);
@@ -122,11 +132,17 @@ export class Factory {
     public subtenantDarkThemeImageRepository(): SubtenantDarkThemeImageRepository {
         return new SubtenantDarkThemeImageRepository(this._config);
     }
+    public subtenantIdentityProviderRepository(): SubtenantIdentityProviderRepository {
+        return new SubtenantIdentityProviderRepository(this._config);
+    }
     public subtenantLightThemeColorRepository(): SubtenantLightThemeColorRepository {
         return new SubtenantLightThemeColorRepository(this._config);
     }
     public subtenantLightThemeImageRepository(): SubtenantLightThemeImageRepository {
         return new SubtenantLightThemeImageRepository(this._config);
+    }
+    public subtenantPolicyGroupRepository(): SubtenantPolicyGroupRepository {
+        return new SubtenantPolicyGroupRepository(this._config);
     }
     public subtenantTrustedCertificateRepository(): SubtenantTrustedCertificateRepository {
         return new SubtenantTrustedCertificateRepository(this._config);
